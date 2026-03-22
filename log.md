@@ -1,0 +1,10 @@
+# I'm taking a break from poagitText.
+Due to the awful launch of Release 4.2 and me having to take it down after spending almost a month developing it has made me lose some interest in
+developing poagitText at this time. Another notable issue preventing me from releasing a new update is the massive performance issues the new
+Extensions are causing on all computers. It is a little noticable in Release 4, but in Release 4.2 it is basically unusable. After this, it became
+more of a chore to try and update poagitText to Release 4.2, only to be met with so many CSS issues after release. As a result, I will be taking a
+1-2 week break from actively developing poagitText to try and breathe some fresh air. I will be back and release an update (Likely Release 4.2.1)
+when I return.
+
+Thank you for understanding,
+-RitPigDev
