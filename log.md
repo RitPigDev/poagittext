@@ -1,4 +1,9 @@
-# I'm taking a break from poagitText.
+# March 22nd Update
+I have decided to continue working on the next poagitText 4 update, although at a reduced pace. I enjoy working on poagitText, but I also don't want it taking up my entire day.
+Next update is scheduled for March 24th (hopefully).
+
+
+I'm taking a break from poagitText.
 Due to the awful launch of Release 4.2 and me having to take it down after spending almost a month developing it has made me lose some interest in
 developing poagitText at this time. Another notable issue preventing me from releasing a new update is the massive performance issues the new
 Extensions are causing on all computers. It is a little noticable in Release 4, but in Release 4.2 it is basically unusable. After this, it became
