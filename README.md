@@ -1,4 +1,4 @@
-<b>The poagitText repository is currently not recieving updates due to me losing some interest in developing it. Check more details in the log.md file in the repository.</b>
+<b>The next poagitText update is taking longer than expected. Please stand by.</b>
 # poagitText
 
 poagitText is a text editor built fully into a single HTML file. It's designed to run on old/slow computers while having a decent feature set.
