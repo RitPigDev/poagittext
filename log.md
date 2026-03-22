@@ -3,6 +3,7 @@ I have decided to continue working on the next poagitText 4 update, although at 
 Next update is scheduled for March 24th (hopefully).
 
 
+# Original Message
 I'm taking a break from poagitText.
 Due to the awful launch of Release 4.2 and me having to take it down after spending almost a month developing it has made me lose some interest in
 developing poagitText at this time. Another notable issue preventing me from releasing a new update is the massive performance issues the new
