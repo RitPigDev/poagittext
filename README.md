@@ -1,4 +1,3 @@
-<b>The next poagitText update is taking longer than expected. Please stand by.</b>
 # poagitText
 
 poagitText is a text editor built fully into a single HTML file. It's designed to run on old/slow computers while having a decent feature set.
