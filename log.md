@@ -1,4 +1,6 @@
-# poagitText Release 4.3
+# Development logs
+
+<b>April 5th Update</b>
 The next update of poagitText is scheduled for tomorrow at 3:25PM EDT. I had quite a lot of fun making this update, so I'm pretty excited to show what I've been working on.
 
 <b>March 22nd Update</b>
