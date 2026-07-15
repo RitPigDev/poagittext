@@ -4,3 +4,5 @@ poagitText is a decently feature-rich customizable text editor designed for in-b
 
 <b>Please remember to do an OTA Update of poagitText as soon as you launch it.</b>
 Subsequent fixes are usually pushed this way.
+
+Visit my blog [here](https://ritpigdev.blogspot.com/) where I post regularly about the devlelopment of poagitText.
