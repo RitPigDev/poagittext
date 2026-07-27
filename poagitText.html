@@ -5988,7 +5988,7 @@
         </div>
     </div>
 
-    <!-- About modal -->
+    <!-- About Modal -->
     <div class="modal about-modal" id="aboutModal">
         <div class="modal-content">
             <div class="about-body">
@@ -11407,7 +11407,17 @@ Produce a single synthesized response:`;
 
                 try {
                     const ver  = this._UPDATER.CURRENT_VERSION;
-                    const res  = await fetch(`${this.POAGIT_SYNC_URL}?action=login&username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}&app=poagitText&version=${encodeURIComponent(ver)}`);
+                    const res  = await fetch(this.POAGIT_SYNC_URL, {
+                        method : 'POST',
+                        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                        body   : JSON.stringify({
+                            action  : 'login',
+                            username: username,
+                            password: password,
+                            app     : 'poagitText',
+                            version : ver
+                        })
+                    });
                     const data = await res.json();
                     if (this._syncHandleUpdateRequired(data, errEl)) {
                         // poagitText itself is out of date — handled above, stop here.
@@ -14558,7 +14568,73 @@ Produce a single synthesized response:`;
                 }
             };
 
-            
+            // ── createAdmin / confirmAdmin: console-driven admin account setup ──
+            // Usage (run in the browser devtools console):
+            //   1. createAdmin("RitPigDev", "yourNewPassword")
+            //        -> sends a request to poagitSync. The server does NOT return
+            //           a confirmation code here (that would let anyone hijack the
+            //           account via the public endpoint) — it only logs the code
+            //           to the Apps Script project's own execution log, which only
+            //           the script owner can see.
+            //   2. In the Apps Script editor: View -> Executions (or Logs), find
+            //      the "admin_init" run, copy the confirmation code shown there.
+            //   3. confirmAdmin("CODEHERE")
+            //        -> finalizes it: creates/overwrites the account with the
+            //           password you chose in step 1, removes any prior row for
+            //           that username, and reinserts it as the very first data
+            //           row (row 2, right under the header) so it stays "account
+            //           #1". Logs you in automatically on success.
+            window.createAdmin = async function (user, password) {
+                if (!user || !password) {
+                    console.log('Usage: createAdmin("username", "password")');
+                    return;
+                }
+                try {
+                    const res = await fetch(app.POAGIT_SYNC_URL, {
+                        method : 'POST',
+                        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                        body   : JSON.stringify({ action: 'admin_init', username: user, password: password })
+                    });
+                    const data = await res.json();
+                    if (data.success) {
+                        console.log(`[createAdmin] Request received for "${user}". ` +
+                                     `Ask whoever has access to the Apps Script project to check ` +
+                                     `Executions/Logs for the confirmation code, then run:\n` +
+                                     `  confirmAdmin("CODEHERE")`);
+                    } else {
+                        console.log('[createAdmin] Failed: ' + (data.error || 'Unknown error'));
+                    }
+                } catch (e) {
+                    console.log('[createAdmin] Could not reach poagitSync backend: ' + e.message);
+                }
+            };
+
+            window.confirmAdmin = async function (code) {
+                if (!code) {
+                    console.log('Usage: confirmAdmin("CODEHERE")');
+                    return;
+                }
+                try {
+                    const res = await fetch(app.POAGIT_SYNC_URL, {
+                        method : 'POST',
+                        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                        body   : JSON.stringify({ action: 'admin_confirm', code: code })
+                    });
+                    const data = await res.json();
+                    if (data.success) {
+                        localStorage.setItem('poagitsync_username', data.username);
+                        localStorage.setItem('poagitsync_token', data.token);
+                        console.log(`[confirmAdmin] Success! Signed in as "${data.username}".`);
+                        if (typeof app._syncRefreshView === 'function') app._syncRefreshView();
+                        if (app.showNotification) app.showNotification(`Admin account "${data.username}" activated!`, 'success');
+                    } else {
+                        console.log('[confirmAdmin] Failed: ' + (data.error || 'Unknown error'));
+                    }
+                } catch (e) {
+                    console.log('[confirmAdmin] Could not reach poagitSync backend: ' + e.message);
+                }
+            };
+
             // Load saved theme (dark/light) — button removed in 4.3, theme still persists
             const savedTheme = localStorage.getItem('piggtext_pro_theme');
             if (savedTheme) {
