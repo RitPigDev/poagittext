@@ -1,4 +1,4 @@
-# poagitText
+# poagitText (Legacy)
 
 poagitText is a decently feature-rich customizable text editor designed for in-browser productivity.
 
@@ -7,5 +7,5 @@ Subsequent fixes are usually pushed this way.
 
 Visit my blog [here](https://ritpigdev.blogspot.com/) where I post regularly about the devlelopment of poagitText.
 
-# poagitText Legacy is ending major releases shortly
-Starting August 1st, full poagitText development will be migrated over to poagitText Pro due to engine limitations.
+<b>This build is the legacy version of poagitText.</b>
+For the updated version, check out poagitText Pro.
