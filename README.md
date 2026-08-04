@@ -8,4 +8,4 @@ Subsequent fixes are usually pushed this way.
 Visit my blog [here](https://ritpigdev.blogspot.com/) where I post regularly about the devlelopment of poagitText.
 
 <b>This build is the legacy version of poagitText.</b>
-For the updated version, check out poagitText Pro.
+For the updated version, check out [poagitText pro](https://github.com/ritpigdev/poagittext-pro)
