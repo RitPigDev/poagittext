@@ -7,3 +7,6 @@ poagitText is a decently feature-rich customizable text editor designed for in-b
 For the updated version, check out [poagitText pro](https://github.com/ritpigdev/poagittext-pro).  
   
 If you wish to use poagitText Legacy, please keep in mind that updates can cease at any time.
+
+# Update schedule
+poagitText Landrace in legacy support will maintain a 3 day update schedule to maintain support with poagitSync & keep it secure.
